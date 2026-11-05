@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MHXX スキルシミュ・装備シミュ｜スキルシミュ for MHXX</title>
+  <meta name="description" content="モンハンダブルクロス（MHXX）の装備・スキルシミュレーター。カメラスキャンで手持ちの護石をまとめて登録。見逃していた護石から、強い装備の組み合わせを探せます。iPhone・iPad対応。">
+  <link rel="canonical" href="https://iceman5499.work/app/mhxxtools.html">
+  <link rel="icon" type="image/svg+xml" href="mhxxtools_assets/icon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="MHXX スキルシミュ・装備シミュ｜スキルシミュ for MHXX">
+  <meta property="og:description" content="カメラで護石を丸ごとスキャン。MHXX専用装備シミュレーターがiOSアプリとして登場！手持ちの護石をまとめて登録して、見逃していた装備の可能性を探せます。">
+  <meta property="og:url" content="https://iceman5499.work/app/mhxxtools.html">
+  <meta property="og:image" content="https://iceman5499.work/app/mhxxtools_assets/equipment.png">
+  <meta property="og:image:alt" content="スキルシミュ for MHXXの装備詳細画面">
+  <meta name="twitter:card" content="summary">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#211827" media="(prefers-color-scheme: dark)">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "スキルシミュ for MHXX",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "iOS, iPadOS",
+      "description": "モンスターハンターダブルクロス（MHXX）のスキル・装備シミュレーター。カメラスキャンで手持ちの護石をまとめて登録し、見逃していた護石から装備の組み合わせを検索。追加スキル検索やマイセット保存にも対応。",
+      "url": "https://iceman5499.work/app/mhxxtools.html",
+      "installUrl": "https://apps.apple.com/jp/app/id6827871345",
+      "screenshot": "https://iceman5499.work/app/mhxxtools_assets/equipment.png",
+      "inLanguage": "ja"
+    }
+  </script>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --ink: #211827;
+      --muted: #645c68;
+      --paper: #f5f3ee;
+      --surface: #fffefa;
+      --line: #d6d0d7;
+      --purple: #a52aa3;
+      --yellow: #f3c744;
+      --accent: var(--purple);
+      --accent-ink: #fff;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    img, video { display: block; max-width: 100%; }
+    button, a, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+    button { font: inherit; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+    .skip { position: absolute; top: -60px; padding: 12px; background: var(--surface); z-index: 10; }
+    .skip:focus { top: 0; }
+    .header { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 68px; border-bottom: 2px solid var(--ink); }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 15px; font-weight: 800; }
+    .brand img { width: 34px; height: 34px; border-radius: 6px; }
+    .header-note { font: 11px ui-monospace, monospace; letter-spacing: .06em; color: var(--muted); }
+    .hero { display: grid; grid-template-columns: .93fr 1.07fr; gap: 32px; align-items: center; padding-block: 30px; }
+    .eyebrow { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .04em; color: var(--accent); }
+    h1 { margin: 15px 0 18px; font-size: clamp(34px, 3.7vw, 48px); font-weight: 900; line-height: 1.28; letter-spacing: -.045em; }
+    h1 em { font-style: normal; color: var(--accent); }
+    .lead { max-width: 460px; margin: 0; font-size: 14px; line-height: 1.9; color: var(--muted); }
+    .lead strong { color: var(--ink); font-weight: 700; }
+    .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; margin-top: 22px; }
+    .store { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; padding: 12px 20px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-size: 14px; font-weight: 800; border: 1px solid var(--accent); }
+    .store:hover { filter: brightness(1.12); }
+    .platform { font-size: 11px; line-height: 1.7; color: var(--muted); }
+    .gallery { min-width: 0; }
+    .gallery-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+    .gallery-head h2 { margin: 0; font-size: 12px; font-weight: 800; }
+    .screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .screen { margin: 0; }
+    .screen img, .screen video { width: 100%; height: auto; aspect-ratio: 1206 / 2622; object-fit: contain; border: 1px solid var(--line); background: #211827; }
+    .screen figcaption { margin-top: 8px; font-size: 11px; font-weight: 700; }
+    .screen figcaption span { margin-right: 5px; font: 10px ui-monospace, monospace; color: var(--accent); }
+    .features { padding-block: 24px 22px; border-top: 1px solid var(--line); }
+    .section-label { margin: 0 0 14px; font-size: 12px; font-weight: 800; }
+    .feature-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .feature { padding-right: 20px; }
+    .feature + .feature { padding-left: 20px; border-left: 1px solid var(--line); }
+    .number { font: 11px ui-monospace, monospace; color: var(--accent); font-weight: 700; }
+    .feature h3 { margin: 8px 0; font-size: 16px; line-height: 1.5; }
+    .feature p { margin: 0; font-size: 12px; line-height: 1.85; color: var(--muted); }
+    .notes { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .notes details { padding: 14px 0; }
+    .notes details + details { padding-left: 22px; border-left: 1px solid var(--line); }
+    .notes details:first-child { padding-right: 22px; }
+    summary { display: flex; justify-content: space-between; gap: 12px; cursor: pointer; font-size: 12px; font-weight: 700; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--accent); }
+    details[open] summary::after { content: "−"; }
+    .notes p { margin: 10px 0 0; font-size: 12px; line-height: 1.85; color: var(--muted); }
+    .footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 16px; color: var(--muted); font-size: 10px; line-height: 1.7; }
+    .footer p { margin: 0; }
+    .footer a { flex-shrink: 0; font-size: 12px; font-weight: 700; color: var(--ink); text-underline-offset: 3px; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #f5f1f6; --muted: #bfb6c4; --paper: #211827; --surface: #2b2231; --line: #4b3f52; --accent: var(--yellow); --accent-ink: #211827; }
+    }
+    @media (max-width: 850px) {
+      .wrap { width: calc(100% - 32px); }
+      .hero { gap: 20px; }
+      h1 { font-size: 35px; }
+      .lead { font-size: 13px; }
+      .feature { padding-right: 12px; }
+      .feature + .feature { padding-left: 12px; }
+      .feature h3 { font-size: 14px; }
+    }
+    @media (max-width: 640px) {
+      .header { min-height: 58px; }
+      .brand { font-size: 13px; gap: 8px; }
+      .brand img { width: 30px; height: 30px; }
+      .header-note { font-size: 9px; }
+      .hero { grid-template-columns: 1fr; gap: 18px; padding-block: 22px 20px; }
+      h1 { font-size: clamp(32px, 8.6vw, 42px); margin-block: 10px 12px; }
+      .eyebrow { font-size: 11px; }
+      .lead { max-width: none; font-size: 13px; line-height: 1.8; }
+      .actions { margin-top: 16px; }
+      .store { padding-inline: 16px; }
+      .gallery-head { margin-bottom: 8px; }
+      .screens { gap: 8px; max-width: 420px; margin-inline: auto; }
+      .screen figcaption { font-size: 10px; margin-top: 6px; }
+      .features { padding-block: 18px; }
+      .section-label { margin-bottom: 12px; }
+      .feature-grid { grid-template-columns: 1fr 1fr; row-gap: 18px; }
+      .feature:nth-child(3) { border-left: 0; padding-left: 0; }
+      .feature:nth-child(even) { padding-right: 0; }
+      .feature h3 { margin-block: 5px; }
+      .feature p { font-size: 11px; }
+      .notes { grid-template-columns: 1fr; }
+      .notes details:first-child, .notes details + details { padding: 12px 0; border-left: 0; }
+      .notes details + details { border-top: 1px solid var(--line); }
+      .footer { align-items: flex-start; flex-direction: column; gap: 10px; padding-block: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="wrap header">
+    <a class="brand" href="mhxxtools.html"><img src="mhxxtools_assets/icon.svg" alt="" width="34" height="34">スキルシミュ for MHXX</a>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">MHXX スキル・装備シミュレーター</p>
+        <h1 id="hero-title">カメラで護石を<br><em>丸ごとスキャン</em></h1>
+        <p class="lead">
+            <strong>MHXX専用装備シミュレーターがiOSアプリとして登場！</strong>
+            <br>発動したいスキルをセットして、理想の組み合わせを見つけよう。見逃していた護石から、もっと強い装備が見つかるかもしれません。
+        </p>
+        <div class="actions">
+          <a class="store" href="https://apps.apple.com/jp/app/id6827871345">App Storeで見る<span aria-hidden="true">↗</span></a>
+          <span class="platform">iPhone・iPad 対応</span>
+        </div>
+      </div>
+      <section class="gallery" aria-labelledby="screens-title">
+        <div class="gallery-head"><h2 id="screens-title">護石を登録して、装備を探す</h2></div>
+        <div class="screens">
+          <figure class="screen">
+            <video autoplay muted loop controls playsinline preload="auto" poster="mhxxtools_assets/scan.png" width="886" height="1920" aria-label="護石スキャンの動画">
+              <source src="mhxxtools_assets/demo.mp4" type="video/mp4">
+              <a href="mhxxtools_assets/demo.mp4">護石スキャンの動画を見る</a>
+            </video>
+            <figcaption><span>01</span>護石スキャン</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="mhxxtools_assets/conditions.png" alt="発動スキルと武器スロットを指定するMHXX装備シミュの検索条件画面" width="1206" height="2622" fetchpriority="high">
+            <figcaption><span>02</span>スキルを選ぶ</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="mhxxtools_assets/equipment.png" alt="装飾品の配置と発動スキル、スキルポイントを確認する装備詳細" width="1206" height="2622">
+            <figcaption><span>03</span>装備を確認</figcaption>
+          </figure>
+        </div>
+      </section>
+    </section>
+    <section class="features" aria-labelledby="features-title">
+      <h2 id="features-title" class="section-label">護石の登録から、装備の完成まで。</h2>
+      <div class="feature-grid">
+        <article class="feature"><span class="number">01 / SCAN</span><h3>護石をまとめてスキャン</h3><p>ゲームの護石一覧をカメラで読み取って登録。大量の護石も、一つずつ手入力せずに取り込めます。</p></article>
+        <article class="feature"><span class="number">02 / SEARCH</span><h3>発動したいスキルをセット</h3><p>欲しいスキルから装備を検索。ゲーム進行度や自分の所持装備に応じた検索もできます。</p></article>
+        <article class="feature"><span class="number">03 / SKILLS</span><h3>追加スキルを検索</h3><p>現在のスキルに加えてさらに発動できるスキルを検索。思わぬ組み合わせが見つかるかも！？</p></article>
+        <article class="feature"><span class="number">04 / MY SET</span><h3>お気に入りの装備を保存</h3><p>名前を付けてマイセットに保存。ゲーム内マイセットから溢れた分をこちらで管理。</p></article>
+      </div>
+    </section>
+    <aside class="notes" aria-label="利用について">
+      <details><summary>対応端末について</summary><p>iPhone・iPad向けのアプリです。Android版はありません。対応OSなどの詳細はApp Storeをご確認ください。</p></details>
+      <details><summary>護石のカメラスキャンについて</summary><p>スキャンの学習にはNintendo Switch版のゲーム画像を使用しています。3DS版での動作は未確認です。読み取り結果は元の画面と照らし合わせてご確認ください。</p></details>
+    </aside>
+  </main>
+  <footer class="wrap footer">
+    <p>本アプリは非公式のファンメイドアプリです。<br>「モンスターハンター」は株式会社カプコンの商標または登録商標です。</p>
+    <a href="https://apps.apple.com/jp/app/id6827871345">App Storeで詳しく見る ↗</a>
+  </footer>
+</body>
+</html>
