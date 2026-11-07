@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MHXX スキルシミュ・装備シミュ｜スキルシミュ for MHXX</title>
-  <meta name="description" content="モンハンダブルクロス（MHXX）の装備・スキルシミュレーター。カメラスキャンで手持ちの護石をまとめて登録。見逃していた護石から、強い装備の組み合わせを探せます。iPhone・iPad対応。">
+  <meta name="description" content="モンスターハンターダブルクロス（MHXX）の装備・スキルシミュレーターアプリ。カメラスキャンで手持ちの護石をまとめて登録。自分専用の最強装備を探してみよう。">
   <link rel="canonical" href="https://iceman5499.work/app/mhxxtools.html">
   <link rel="icon" type="image/svg+xml" href="mhxxtools_assets/icon.svg">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:title" content="MHXX スキルシミュ・装備シミュ｜スキルシミュ for MHXX">
-  <meta property="og:description" content="カメラで護石を丸ごとスキャン。MHXX専用装備シミュレーターがiOSアプリとして登場！手持ちの護石をまとめて登録して、見逃していた装備の可能性を探せます。">
+  <meta property="og:description" content="MHXXの装備シミュレーターがiOSアプリとして登場！カメラで護石を丸ごとスキャン。自分専用の最強装備を探してみよう。">
   <meta property="og:url" content="https://iceman5499.work/app/mhxxtools.html">
-  <meta property="og:image" content="https://iceman5499.work/app/mhxxtools_assets/equipment.png">
-  <meta property="og:image:alt" content="スキルシミュ for MHXXの装備詳細画面">
+  <meta property="og:image" content="https://iceman5499.work/app/mhxxtools_assets/conditions.png">
+  <meta property="og:image:alt" content="スキルシミュ for MHXXのスキル検索画面">
   <meta name="twitter:card" content="summary">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
@@ -25,9 +25,9 @@
       "name": "スキルシミュ for MHXX",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "iOS, iPadOS",
-      "description": "モンスターハンターダブルクロス（MHXX）のスキル・装備シミュレーター。カメラスキャンで手持ちの護石をまとめて登録し、見逃していた護石から装備の組み合わせを検索。追加スキル検索やマイセット保存にも対応。",
+      "description": "モンスターハンターダブルクロス（MHXX）のスキル・装備シミュレーターアプリ。カメラスキャンで手持ちの護石をまとめて登録。自分専用の最強装備を探してみよう。追加スキル検索やマイセット保存にも対応。",
       "url": "https://iceman5499.work/app/mhxxtools.html",
-      "installUrl": "https://apps.apple.com/jp/app/id6827871345",
+      "installUrl": "https://apps.apple.com/app/apple-store/id6827871345?pt=2248703&ct=web_lp&mt=8",
       "screenshot": "https://iceman5499.work/app/mhxxtools_assets/equipment.png",
       "inLanguage": "ja"
     }
@@ -64,7 +64,7 @@
     h1 { margin: 15px 0 18px; font-size: clamp(34px, 3.7vw, 48px); font-weight: 900; line-height: 1.28; letter-spacing: -.045em; }
     h1 em { font-style: normal; color: var(--accent); }
     .lead { max-width: 460px; margin: 0; font-size: 14px; line-height: 1.9; color: var(--muted); }
-    .lead strong { color: var(--ink); font-weight: 700; }
+    .lead strong { color: var(--ink); font-size: 16px; font-weight: 700; }
     .actions { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 16px; margin-top: 22px; }
     .store { display: inline-flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 48px; padding: 12px 20px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-size: 14px; font-weight: 800; border: 1px solid var(--accent); }
     .store:hover { filter: brightness(1.12); }
@@ -74,7 +74,7 @@
     .gallery-head h2 { margin: 0; font-size: 12px; font-weight: 800; }
     .screens { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
     .screen { margin: 0; }
-    .screen img, .screen video { width: 100%; height: auto; aspect-ratio: 1206 / 2622; object-fit: contain; border: 1px solid var(--line); background: #211827; }
+    .screen img, .screen video { width: 100%; height: auto; aspect-ratio: 1206 / 2622; object-fit: contain; outline: 1px solid var(--line); outline-offset: -1px; background: #211827; }
     .screen figcaption { margin-top: 8px; font-size: 11px; font-weight: 700; }
     .screen figcaption span { margin-right: 5px; font: 10px ui-monospace, monospace; color: var(--accent); }
     .features { padding-block: 24px 22px; border-top: 1px solid var(--line); }
@@ -149,11 +149,10 @@
         <h1 id="hero-title">カメラで護石を<br><em>丸ごとスキャン</em></h1>
         <p class="lead">
             <strong>MHXX専用装備シミュレーターがiOSアプリとして登場！</strong>
-            <br>発動したいスキルをセットして、理想の組み合わせを見つけよう。見逃していた護石から、もっと強い装備が見つかるかもしれません。
+            <br>発動したいスキルを選択して検索。手持ちの護石をまとめて登録することで、自分専用の最強装備を見つけられます。
         </p>
         <div class="actions">
-          <a class="store" href="https://apps.apple.com/jp/app/id6827871345">App Storeで見る<span aria-hidden="true">↗</span></a>
-          <span class="platform">iPhone・iPad 対応</span>
+          <a class="store" href="https://apps.apple.com/app/apple-store/id6827871345?pt=2248703&amp;ct=web_lp&amp;mt=8">App Storeで見る<span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <section class="gallery" aria-labelledby="screens-title">
@@ -178,7 +177,7 @@
       </section>
     </section>
     <section class="features" aria-labelledby="features-title">
-      <h2 id="features-title" class="section-label">護石の登録から、装備の完成まで。</h2>
+      <h2 id="features-title" class="section-label">基本的な利用方法</h2>
       <div class="feature-grid">
         <article class="feature"><span class="number">01 / SCAN</span><h3>護石をまとめてスキャン</h3><p>ゲームの護石一覧をカメラで読み取って登録。大量の護石も、一つずつ手入力せずに取り込めます。</p></article>
         <article class="feature"><span class="number">02 / SEARCH</span><h3>発動したいスキルをセット</h3><p>欲しいスキルから装備を検索。ゲーム進行度や自分の所持装備に応じた検索もできます。</p></article>
@@ -193,7 +192,7 @@
   </main>
   <footer class="wrap footer">
     <p>本アプリは非公式のファンメイドアプリです。<br>「モンスターハンター」は株式会社カプコンの商標または登録商標です。</p>
-    <a href="https://apps.apple.com/jp/app/id6827871345">App Storeで詳しく見る ↗</a>
+    <a href="https://apps.apple.com/app/apple-store/id6827871345?pt=2248703&amp;ct=web_lp&amp;mt=8">App Storeで詳しく見る ↗</a>
   </footer>
 </body>
 </html>
